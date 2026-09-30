@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Service | MJ Technologies</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1a1a1a;
+        }
+
+        .header {
+            background: #071a33;
+            padding: 20px 8%;
+            color: white;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #2196f3;
+        }
+
+        .back-home {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .back-home:hover {
+            color: #2196f3;
+        }
+
+        .booking-container {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .booking-header h1 {
+            color: #071a33;
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .booking-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #071a33;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #d6dce5;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+            background: white;
+        }
+
+        .form-control:focus {
+            border-color: #2196f3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+        }
+
+        .selected-package {
+            background: #eef7ff;
+            border: 1px solid #2196f3;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 25px;
+        }
+
+        .selected-package-title {
+            color: #071a33;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .selected-package-name {
+            color: #2196f3;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .selected-package-price {
+            color: #071a33;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+
+        .errorlist {
+            color: #dc3545;
+            margin-top: 6px;
+            padding-left: 18px;
+            font-size: 14px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #0d7bdc;
+        }
+
+        .required-note {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .loading {
+            color: #777;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .no-packages {
+            color: #777;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        @media (max-width: 700px) {
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .booking-card {
+                padding: 25px 20px;
+            }
+
+            .booking-header h1 {
+                font-size: 30px;
+            }
+
+            .header-content {
+                padding: 0;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header class="header">
+
+    <div class="header-content">
+
+        <div class="logo">
+            MJ <span>TECHNOLOGIES</span>
+        </div>
+
+        <a href="/" class="back-home">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="booking-container">
+
+    <div class="booking-header">
+
+        <h1>
+            Book a Service
+        </h1>
+
+        <p>
+            Tell us what you need and our team will get back to you.
+        </p>
+
+    </div>
+
+
+    <div class="booking-card">
+
+        <p class="required-note">
+            Please fill in the information below to request a service.
+        </p>
+
+
+        <div
+            id="booking-data"
+            data-packages-url="{% url 'service_packages' %}"
+        ></div>
+
+
+        <div
+            id="selected-package-box"
+            class="selected-package"
+            style="display: none;"
+        >
+
+            <div class="selected-package-title">
+                SELECTED PACKAGE
+            </div>
+
+            <div
+                id="selected-package-name"
+                class="selected-package-name"
+            ></div>
+
+            <div
+                id="selected-package-price"
+                class="selected-package-price"
+            ></div>
+
+        </div>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            {% if form.non_field_errors %}
+
+                {{ form.non_field_errors }}
+
+            {% endif %}
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="{{ form.customer_name.id_for_label }}">
+                        Full Name
+                    </label>
+
+                    {{ form.customer_name }}
+
+                    {{ form.customer_name.errors }}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="{{ form.phone.id_for_label }}">
+                        Phone Number
+                    </label>
+
+                    {{ form.phone }}
+
+                    {{ form.phone.errors }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="{{ form.email.id_for_label }}">
+                        Email Address
+                    </label>
+
+                    {{ form.email }}
+
+                    {{ form.email.errors }}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="{{ form.company_name.id_for_label }}">
+                        Company / Business Name
+                    </label>
+
+                    {{ form.company_name }}
+
+                    {{ form.company_name.errors }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="{{ form.service.id_for_label }}">
+                    Select Service
+                </label>
+
+                {{ form.service }}
+
+                {{ form.service.errors }}
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="{{ form.service_package.id_for_label }}">
+                    Select Service Package
+                </label>
+
+                {{ form.service_package }}
+
+                <div
+                    id="package-status"
+                    class="loading"
+                    style="display: none;"
+                >
+                    Loading packages...
+                </div>
+
+                {{ form.service_package.errors }}
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="{{ form.booking_date.id_for_label }}">
+                        Preferred Date
+                    </label>
+
+                    {{ form.booking_date }}
+
+                    {{ form.booking_date.errors }}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="{{ form.booking_time.id_for_label }}">
+                        Preferred Time
+                    </label>
+
+                    {{ form.booking_time }}
+
+                    {{ form.booking_time.errors }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="{{ form.description.id_for_label }}">
+                    Describe the Service You Need
+                </label>
+
+                {{ form.description }}
+
+                {{ form.description.errors }}
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Book Service
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<script>
+
+    const bookingData = document.getElementById("booking-data");
+
+    const packagesUrl = bookingData.dataset.packagesUrl;
+
+    const serviceSelect = document.getElementById(
+        "{{ form.service.id_for_label }}"
+    );
+
+    const packageSelect = document.getElementById(
+        "{{ form.service_package.id_for_label }}"
+    );
+
+    const packageStatus = document.getElementById(
+        "package-status"
+    );
+
+    const selectedPackageBox = document.getElementById(
+        "selected-package-box"
+    );
+
+    const selectedPackageName = document.getElementById(
+        "selected-package-name"
+    );
+
+    const selectedPackagePrice = document.getElementById(
+        "selected-package-price"
+    );
+
+
+    const initialService = serviceSelect.value;
+
+    const initialPackage = packageSelect.value;
+
+
+    function resetPackageDropdown() {
+
+        packageSelect.innerHTML = "";
+
+        const defaultOption = document.createElement("option");
+
+        defaultOption.value = "";
+
+        defaultOption.textContent = "Select a package";
+
+        packageSelect.appendChild(defaultOption);
+
+    }
+
+
+    function hideSelectedPackage() {
+
+        selectedPackageBox.style.display = "none";
+
+        selectedPackageName.textContent = "";
+
+        selectedPackagePrice.textContent = "";
+
+    }
+
+
+    function showSelectedPackage(packageData) {
+
+        if (!packageData) {
+
+            hideSelectedPackage();
+
+            return;
+
+        }
+
+
+        selectedPackageName.textContent =
+            packageData.name;
+
+        selectedPackagePrice.textContent =
+            "TSh " +
+            Number(packageData.price).toLocaleString();
+
+
+        selectedPackageBox.style.display = "block";
+
+    }
+
+
+    async function loadPackages(
+        serviceName,
+        selectedPackageId = ""
+    ) {
+
+        resetPackageDropdown();
+
+        hideSelectedPackage();
+
+
+        if (!serviceName) {
+
+            packageStatus.style.display = "none";
+
+            return;
+
+        }
+
+
+        packageStatus.textContent =
+            "Loading packages...";
+
+        packageStatus.style.display = "block";
+
+
+        try {
+
+            const response = await fetch(
+                packagesUrl +
+                "?service=" +
+                encodeURIComponent(serviceName)
+            );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Failed to load packages"
+                );
+
+            }
+
+
+            const data = await response.json();
+
+
+            packageStatus.style.display = "none";
+
+
+            if (
+                !data.packages ||
+                data.packages.length === 0
+            ) {
+
+                const noPackageOption =
+                    document.createElement("option");
+
+                noPackageOption.value = "";
+
+                noPackageOption.textContent =
+                    "No packages available for this service";
+
+                packageSelect.appendChild(
+                    noPackageOption
+                );
+
+                return;
+
+            }
+
+
+            data.packages.forEach(
+                function(packageData) {
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value =
+                        packageData.id;
+
+                    option.textContent =
+                        packageData.name +
+                        " — TSh " +
+                        Number(
+                            packageData.price
+                        ).toLocaleString();
+
+
+                    if (
+                        String(packageData.id) ===
+                        String(selectedPackageId)
+                    ) {
+
+                        option.selected = true;
+
+                    }
+
+
+                    packageSelect.appendChild(
+                        option
+                    );
+
+                }
+            );
+
+
+            if (selectedPackageId) {
+
+                const selected =
+                    data.packages.find(
+                        function(packageData) {
+
+                            return String(
+                                packageData.id
+                            ) === String(
+                                selectedPackageId
+                            );
+
+                        }
+                    );
+
+
+                showSelectedPackage(selected);
+
+            }
+
+        } catch (error) {
+
+            packageStatus.textContent =
+                "Unable to load packages. Please try again.";
+
+            packageStatus.style.display = "block";
+
+            console.error(error);
+
+        }
+
+    }
+
+
+    serviceSelect.addEventListener(
+        "change",
+        function() {
+
+            loadPackages(
+                serviceSelect.value
+            );
+
+        }
+    );
+
+
+    packageSelect.addEventListener(
+        "change",
+        function() {
+
+            const selectedOption =
+                packageSelect.options[
+                    packageSelect.selectedIndex
+                ];
+
+
+            if (
+                !selectedOption ||
+                !selectedOption.value
+            ) {
+
+                hideSelectedPackage();
+
+                return;
+
+            }
+
+
+            selectedPackageName.textContent =
+                selectedOption.textContent
+                .split(" — TSh ")[0];
+
+
+            selectedPackagePrice.textContent =
+                selectedOption.textContent
+                .includes(" — TSh ")
+                    ? "TSh " +
+                      selectedOption.textContent
+                        .split(" — TSh ")[1]
+                    : "";
+
+
+            selectedPackageBox.style.display =
+                "block";
+
+        }
+    );
+
+
+    if (initialService) {
+
+        loadPackages(
+            initialService,
+            initialPackage
+        );
+
+    } else {
+
+        resetPackageDropdown();
+
+    }
+
+</script>
+
+
+</body>
+</html>
