@@ -35,7 +35,10 @@ def pricing(request):
 
 
 def service_packages(request):
-    service_name = request.GET.get("service", "").strip()
+    service_name = request.GET.get(
+        "service",
+        ""
+    ).strip()
 
     packages = ServicePackage.objects.filter(
         active=True,
@@ -71,10 +74,11 @@ def book_service(request):
 
             booking = form.save()
 
-            send_mail(
-                f"Booking Confirmation - {booking.booking_number}",
+            try:
+                send_mail(
+                    f"Booking Confirmation - {booking.booking_number}",
 
-                f"""
+                    f"""
 Hello {booking.customer_name},
 
 Thank you for booking a service with MJ TECHNOLOGIES AND BUSINESS GROUP LTD.
@@ -83,7 +87,11 @@ Your booking has been received successfully.
 
 Booking Number: {booking.booking_number}
 Service: {booking.service}
-Package: {booking.service_package if booking.service_package else "Not specified"}
+Package: {
+    booking.service_package
+    if booking.service_package
+    else "Not specified"
+}
 Date: {booking.booking_date}
 Time: {booking.booking_time}
 Status: {booking.status}
@@ -100,10 +108,15 @@ Email: mjtechnologies51@gmail.com
 Thank you for choosing MJ Technologies.
 """,
 
-                "mjtechnologies51@gmail.com",
+                    "mjtechnologies51@gmail.com",
 
-                [booking.email],
-            )
+                    [booking.email],
+
+                    fail_silently=True,
+                )
+
+            except Exception:
+                pass
 
             return redirect(
                 "booking_success",
