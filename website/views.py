@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail
 from django.http import JsonResponse
 
 from .forms import BookingForm
@@ -74,50 +73,6 @@ def book_service(request):
 
             booking = form.save()
 
-            try:
-                send_mail(
-                    f"Booking Confirmation - {booking.booking_number}",
-
-                    f"""
-Hello {booking.customer_name},
-
-Thank you for booking a service with MJ TECHNOLOGIES AND BUSINESS GROUP LTD.
-
-Your booking has been received successfully.
-
-Booking Number: {booking.booking_number}
-Service: {booking.service}
-Package: {
-    booking.service_package
-    if booking.service_package
-    else "Not specified"
-}
-Date: {booking.booking_date}
-Time: {booking.booking_time}
-Status: {booking.status}
-
-We will contact you to confirm your booking.
-
-MJ TECHNOLOGIES AND BUSINESS GROUP LTD
-HOME OF EXCELLENCE
-
-Phone: +255 789 104 216
-WhatsApp: +255 789 104 216
-Email: mjtechnologies51@gmail.com
-
-Thank you for choosing MJ Technologies.
-""",
-
-                    "mjtechnologies51@gmail.com",
-
-                    [booking.email],
-
-                    fail_silently=True,
-                )
-
-            except Exception:
-                pass
-
             return redirect(
                 "booking_success",
                 booking_number=booking.booking_number
@@ -130,7 +85,6 @@ Thank you for choosing MJ Technologies.
         if package_id:
 
             try:
-
                 package = ServicePackage.objects.get(
                     id=package_id,
                     active=True
