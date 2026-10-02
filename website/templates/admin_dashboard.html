@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MJ Technologies | Admin Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f9;
+            color: #1f2937;
+        }
+
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            width: 250px;
+            background: #111827;
+            color: white;
+            padding: 25px 18px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 5px;
+        }
+
+        .menu a {
+            display: block;
+            text-decoration: none;
+            color: #d1d5db;
+            padding: 13px 15px;
+            margin-bottom: 7px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .sidebar-bottom {
+            position: absolute;
+            bottom: 25px;
+            left: 18px;
+            right: 18px;
+        }
+
+        .sidebar-bottom a {
+            display: block;
+            text-align: center;
+            padding: 11px;
+            border-radius: 8px;
+            background: #dc2626;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* MAIN */
+
+        .main {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 30px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .topbar h2 {
+            font-size: 27px;
+        }
+
+        .topbar p {
+            margin-top: 5px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .admin-user {
+            background: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            font-size: 14px;
+        }
+
+        /* STAT CARDS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .card-number {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .card-small {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* STATUS */
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .status-card {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 4px solid #2563eb;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        }
+
+        .status-card h4 {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 7px;
+        }
+
+        .status-card strong {
+            font-size: 22px;
+        }
+
+        /* TABLE */
+
+        .table-card {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .table-header h3 {
+            font-size: 18px;
+        }
+
+        .view-all {
+            text-decoration: none;
+            color: #2563eb;
+            font-size: 13px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            background: #f9fafb;
+            color: #6b7280;
+            font-size: 12px;
+            padding: 12px;
+        }
+
+        td {
+            padding: 13px 12px;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .confirmed {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .completed {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .cancelled {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #6b7280;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 1000px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .status-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .dashboard {
+                display: block;
+            }
+
+            .sidebar-bottom {
+                position: relative;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                margin-top: 25px;
+            }
+
+            .main {
+                margin-left: 0;
+                width: 100%;
+                padding: 18px;
+            }
+
+            .topbar {
+                display: block;
+            }
+
+            .admin-user {
+                margin-top: 15px;
+                display: inline-block;
+            }
+
+            .stats,
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h1>MJ TECHNOLOGIES</h1>
+            <p>HOME OF EXCELLENCE</p>
+        </div>
+
+        <nav class="menu">
+
+            <a href="{% url 'admin_dashboard' %}" class="active">
+                Dashboard
+            </a>
+
+            <a href="/admin/website/booking/">
+                Bookings
+            </a>
+
+            <a href="/admin/website/service/">
+                Services
+            </a>
+
+            <a href="/admin/website/servicepackage/">
+                Packages
+            </a>
+
+            <a href="/admin/">
+                Django Admin
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="/admin/logout/">
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <div>
+                <h2>Admin Dashboard</h2>
+                <p>
+                    Welcome to MJ Technologies management dashboard.
+                </p>
+            </div>
+
+            <div class="admin-user">
+                👤 Administrator
+            </div>
+
+        </div>
+
+
+        <!-- MAIN STATISTICS -->
+
+        <div class="stats">
+
+            <div class="card">
+
+                <div class="card-title">
+                    TOTAL BOOKINGS
+                </div>
+
+                <div class="card-number">
+                    {{ total_bookings }}
+                </div>
+
+                <div class="card-small">
+                    All service bookings
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    ACTIVE SERVICES
+                </div>
+
+                <div class="card-number">
+                    {{ total_services }}
+                </div>
+
+                <div class="card-small">
+                    Available services
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    ACTIVE PACKAGES
+                </div>
+
+                <div class="card-number">
+                    {{ total_packages }}
+                </div>
+
+                <div class="card-small">
+                    Available packages
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    PENDING BOOKINGS
+                </div>
+
+                <div class="card-number">
+                    {{ pending_bookings }}
+                </div>
+
+                <div class="card-small">
+                    Require attention
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOKING STATUS -->
+
+        <div class="status-grid">
+
+            <div class="status-card">
+
+                <h4>Pending</h4>
+
+                <strong>
+                    {{ pending_bookings }}
+                </strong>
+
+            </div>
+
+
+            <div class="status-card">
+
+                <h4>Confirmed</h4>
+
+                <strong>
+                    {{ confirmed_bookings }}
+                </strong>
+
+            </div>
+
+
+            <div class="status-card">
+
+                <h4>Completed</h4>
+
+                <strong>
+                    {{ completed_bookings }}
+                </strong>
+
+            </div>
+
+
+            <div class="status-card">
+
+                <h4>Cancelled</h4>
+
+                <strong>
+                    {{ cancelled_bookings }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECENT BOOKINGS -->
+
+        <div class="table-card">
+
+            <div class="table-header">
+
+                <h3>
+                    Recent Bookings
+                </h3>
+
+                <a
+                    href="/admin/website/booking/"
+                    class="view-all"
+                >
+                    View All
+                </a>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Booking
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Phone
+                            </th>
+
+                            <th>
+                                Service
+                            </th>
+
+                            <th>
+                                Package
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for booking in recent_bookings %}
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ booking.booking_number }}
+                                </strong>
+                            </td>
+
+                            <td>
+                                {{ booking.customer_name }}
+                            </td>
+
+                            <td>
+                                {{ booking.phone }}
+                            </td>
+
+                            <td>
+                                {{ booking.service }}
+                            </td>
+
+                            <td>
+
+                                {% if booking.service_package %}
+
+                                    {{ booking.service_package.name }}
+
+                                {% else %}
+
+                                    —
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>
+                                {{ booking.booking_date }}
+                            </td>
+
+                            <td>
+
+                                {% if booking.status == "Pending" %}
+
+                                    <span class="badge pending">
+                                        Pending
+                                    </span>
+
+                                {% elif booking.status == "Confirmed" %}
+
+                                    <span class="badge confirmed">
+                                        Confirmed
+                                    </span>
+
+                                {% elif booking.status == "Completed" %}
+
+                                    <span class="badge completed">
+                                        Completed
+                                    </span>
+
+                                {% elif booking.status == "Cancelled" %}
+
+                                    <span class="badge cancelled">
+                                        Cancelled
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+
+                            <td
+                                colspan="7"
+                                class="empty"
+                            >
+                                No bookings available yet.
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -13,68 +12,50 @@
 
     <meta
         name="description"
-        content="MJ Technologies & Business Group Ltd provides technology, digital, business, branding and professional solutions in Tanzania."
+        content="MJ Technologies & Business Group Ltd — Home of Excellence. Website development, online applications, business registration, branding, digital marketing, consultancy and technology solutions."
     >
 
     <meta
         name="keywords"
-        content="MJ Technologies, Tanzania, Dodoma, website development, software development, digital marketing, graphic design, business consultancy"
+        content="MJ Technologies, website development Tanzania, software development Dodoma, business registration Tanzania, graphic design, digital marketing, business consultancy"
     >
 
     <meta name="author" content="MJ Technologies & Business Group Ltd">
 
-    <title>MJ Technologies & Business Group Ltd | Home</title>
+    <title>MJ Technologies & Business Group Ltd | Home of Excellence</title>
 
-
-    <!-- =====================================================
-         GOOGLE FONTS
-    ====================================================== -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-
-    <!-- =====================================================
-         MAIN CSS
-    ====================================================== -->
-
     <style>
+        /* =========================================================
+           ROOT
+        ========================================================= */
 
         :root {
+            --navy: #071426;
+            --navy-light: #0d1e35;
+            --navy-soft: #122842;
 
-            --ink: #08122A;
-            --navy: #0D1E45;
-            --navy2: #132459;
+            --gold: #c9a227;
+            --gold-light: #e4c766;
+            --gold-soft: #f2df9b;
 
-            --gold: #C8911F;
-            --gold2: #E8AE3A;
-            --gold3: #F5D485;
+            --white: #ffffff;
+            --cream: #f8f6ef;
+            --text: #172033;
+            --muted: #687386;
+            --border: rgba(201, 162, 39, 0.25);
 
-            --white: #FFFFFF;
-
-            --smoke: #F0F3FA;
-            --ash: #E2E8F5;
-
-            --body: #374163;
-            --muted: #6B7A9F;
-
-            --rule: #D5DDEF;
-
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
         }
-
 
         * {
             margin: 0;
@@ -82,1878 +63,1200 @@
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             font-family: "DM Sans", sans-serif;
-
+            color: var(--text);
             background: var(--white);
-
-            color: var(--body);
-
             line-height: 1.7;
-
             overflow-x: hidden;
-
         }
-
 
         a {
             text-decoration: none;
             color: inherit;
         }
 
-
         img {
             max-width: 100%;
             display: block;
         }
 
-
         button,
         input,
         textarea,
         select {
-            font-family: inherit;
+            font: inherit;
         }
-
 
         .container {
-
             width: min(1180px, 92%);
+            margin: 0 auto;
+        }
 
-            margin: auto;
+        .section {
+            padding: 100px 0;
+        }
 
+        .section-label {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(42px, 5vw, 64px);
+            line-height: 1.05;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            max-width: 700px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .gold-line {
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+            margin: 25px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 0 28px;
+            border-radius: 2px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(201, 162, 39, 0.25);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: var(--white);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        .btn-dark {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            background: var(--navy-light);
+            transform: translateY(-3px);
         }
 
 
-        /* =====================================================
-           TOP GOLD LINE
-        ====================================================== */
-
-        .top-line {
-
-            height: 4px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--gold),
-                    var(--gold3),
-                    var(--gold)
-                );
-
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            NAVBAR
-        ====================================================== */
+        ========================================================= */
 
         .navbar {
-
-            position: sticky;
-
+            position: fixed;
             top: 0;
-
+            left: 0;
+            right: 0;
             z-index: 1000;
-
-            background: rgba(255,255,255,0.97);
-
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid var(--rule);
-
-        }
-
-
-        .nav-container {
-
-            width: min(1180px, 92%);
-
-            margin: auto;
-
-            min-height: 82px;
-
+            height: 82px;
             display: flex;
-
             align-items: center;
-
-            justify-content: space-between;
-
-            gap: 30px;
-
+            background: rgba(7, 20, 38, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.15);
         }
 
+        .nav-inner {
+            width: min(1180px, 92%);
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
 
         .brand {
-
             display: flex;
-
             align-items: center;
-
             gap: 12px;
-
-            color: var(--navy);
-
-            font-weight: 700;
-
-            letter-spacing: .5px;
-
         }
 
-
-        .brand-logo {
-
-            width: 45px;
-
-            height: 45px;
-
+        .brand-mark {
+            width: 43px;
+            height: 43px;
+            border: 1px solid var(--gold);
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
-            border: 2px solid var(--gold);
-
             color: var(--gold);
-
-            transform: rotate(45deg);
-
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
             font-weight: 700;
-
         }
-
-
-        .brand-logo span {
-
-            transform: rotate(-45deg);
-
-            font-size: 17px;
-
-        }
-
 
         .brand-text {
-
             display: flex;
-
             flex-direction: column;
-
-            line-height: 1.1;
-
+            line-height: 1;
         }
 
-
-        .brand-text strong {
-
-            font-size: 15px;
-
-            color: var(--navy);
-
-        }
-
-
-        .brand-text small {
-
-            font-size: 9px;
-
-            color: var(--gold);
-
+        .brand-name {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
             letter-spacing: 1.5px;
-
-            margin-top: 4px;
-
         }
 
+        .brand-tagline {
+            color: var(--gold);
+            font-size: 8px;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
 
         .nav-links {
-
             display: flex;
-
             align-items: center;
-
             gap: 30px;
-
+            list-style: none;
         }
-
 
         .nav-links a {
-
-            color: var(--navy);
-
-            font-size: 14px;
-
-            font-weight: 600;
-
-            transition: .25s ease;
-
-            position: relative;
-
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
         }
-
-
-        .nav-links a:not(.nav-book)::after {
-
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-
-            bottom: -8px;
-
-            width: 0;
-
-            height: 2px;
-
-            background: var(--gold);
-
-            transition: .25s ease;
-
-        }
-
 
         .nav-links a:hover {
-
             color: var(--gold);
-
         }
 
-
-        .nav-links a:hover::after {
-
-            width: 100%;
-
+        .nav-cta {
+            padding: 10px 18px !important;
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
         }
 
-
-        .nav-book {
-
-            background: var(--navy);
-
-            color: white !important;
-
-            padding: 11px 18px;
-
-            border-radius: 4px;
-
-        }
-
-
-        .nav-book:hover {
-
+        .nav-cta:hover {
             background: var(--gold);
-
+            color: var(--navy) !important;
         }
 
-
-        .mobile-menu {
-
+        .menu-toggle {
             display: none;
-
-            background: none;
-
-            border: none;
-
-            font-size: 30px;
-
-            color: var(--navy);
-
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: transparent;
+            color: var(--white);
             cursor: pointer;
-
+            font-size: 22px;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            HERO
-        ====================================================== */
+        ========================================================= */
 
         .hero {
-
+            min-height: 100vh;
+            padding-top: 82px;
+            display: flex;
+            align-items: center;
             position: relative;
-
+            overflow: hidden;
             background:
                 radial-gradient(
                     circle at 80% 20%,
-                    rgba(200,145,31,.12),
+                    rgba(201, 162, 39, 0.12),
                     transparent 30%
                 ),
                 linear-gradient(
                     135deg,
-                    var(--ink),
-                    var(--navy)
+                    #061222 0%,
+                    #0b1d34 50%,
+                    #071426 100%
                 );
-
-            color: white;
-
-            padding: 110px 0 95px;
-
-            overflow: hidden;
-
         }
-
 
         .hero::before {
-
             content: "";
-
             position: absolute;
-
-            width: 500px;
-
-            height: 500px;
-
-            border: 1px solid rgba(232,174,58,.15);
-
-            border-radius: 50%;
-
-            right: -220px;
-
+            width: 600px;
+            height: 600px;
+            right: -250px;
             top: -180px;
-
+            border: 1px solid rgba(201, 162, 39, 0.12);
+            border-radius: 50%;
         }
-
 
         .hero::after {
-
             content: "";
-
             position: absolute;
-
-            width: 300px;
-
-            height: 300px;
-
-            border: 1px solid rgba(232,174,58,.10);
-
+            width: 450px;
+            height: 450px;
+            right: -150px;
+            top: -100px;
+            border: 1px solid rgba(201, 162, 39, 0.08);
             border-radius: 50%;
-
-            left: -180px;
-
-            bottom: -180px;
-
         }
-
 
         .hero-grid {
-
-            position: relative;
-
-            z-index: 2;
-
             display: grid;
-
-            grid-template-columns: 1.15fr .85fr;
-
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 70px;
-
             align-items: center;
-
+            position: relative;
+            z-index: 2;
         }
 
+        .hero-content {
+            max-width: 720px;
+        }
 
-        .hero-logo {
-
-            width: 76px;
-
-            height: 76px;
-
-            border: 2px solid var(--gold2);
-
-            transform: rotate(45deg);
-
+        .hero-label {
             display: flex;
-
             align-items: center;
-
-            justify-content: center;
-
-            margin-bottom: 35px;
-
-        }
-
-
-        .hero-logo span {
-
-            transform: rotate(-45deg);
-
+            gap: 12px;
+            color: var(--gold);
+            font-size: 11px;
             font-weight: 700;
-
-            color: var(--gold2);
-
-            font-size: 25px;
-
-        }
-
-
-        .eyebrow {
-
-            color: var(--gold3);
-
-            font-size: 12px;
-
-            letter-spacing: 3px;
-
+            letter-spacing: 4px;
             text-transform: uppercase;
-
-            font-weight: 700;
-
-            margin-bottom: 18px;
-
+            margin-bottom: 22px;
         }
 
+        .hero-label::before {
+            content: "";
+            width: 45px;
+            height: 1px;
+            background: var(--gold);
+        }
 
         .hero h1 {
-
             font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(52px, 7vw, 86px);
-
-            line-height: .94;
-
-            font-weight: 600;
-
-            margin-bottom: 26px;
-
-            max-width: 800px;
-
+            color: var(--white);
+            font-size: clamp(55px, 7vw, 88px);
+            line-height: 0.95;
+            font-weight: 500;
+            margin-bottom: 25px;
         }
-
 
         .hero h1 span {
-
-            color: var(--gold2);
-
+            color: var(--gold);
         }
 
-
-        .hero-description {
-
+        .hero-text {
             max-width: 650px;
-
+            color: rgba(255, 255, 255, 0.72);
             font-size: 17px;
-
-            color: #D9E0F2;
-
+            line-height: 1.8;
             margin-bottom: 35px;
-
         }
-
 
         .hero-buttons {
-
             display: flex;
-
-            gap: 14px;
-
             flex-wrap: wrap;
-
+            gap: 15px;
         }
 
-
-        .btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 14px 23px;
-
-            border-radius: 4px;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            transition: .25s ease;
-
-        }
-
-
-        .btn-primary {
-
-            background: var(--gold);
-
-            color: white;
-
-        }
-
-
-        .btn-primary:hover {
-
-            background: var(--gold2);
-
-            transform: translateY(-2px);
-
-        }
-
-
-        .btn-outline {
-
-            border: 1px solid rgba(255,255,255,.35);
-
-            color: white;
-
-        }
-
-
-        .btn-outline:hover {
-
-            background: white;
-
-            color: var(--navy);
-
-        }
-
-
-        .hero-bottom {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 30px;
-
-            margin-top: 45px;
-
-            flex-wrap: wrap;
-
-        }
-
-
-        .hero-bottom-item {
-
-            font-size: 12px;
-
-            color: #BFC9E0;
-
-        }
-
-
-        .hero-bottom-item strong {
-
-            display: block;
-
-            color: white;
-
-            font-size: 14px;
-
-            margin-bottom: 2px;
-
-        }
-
-
-        /* =====================================================
-           HERO FOCUS CARD
-        ====================================================== */
-
-        .focus-card {
-
-            background: rgba(255,255,255,.05);
-
-            border: 1px solid rgba(255,255,255,.12);
-
-            padding: 34px;
-
+        .hero-card {
+            position: relative;
+            padding: 50px 35px;
+            border: 1px solid rgba(201, 162, 39, 0.35);
+            background: rgba(255, 255, 255, 0.035);
             backdrop-filter: blur(8px);
-
         }
 
-
-        .focus-label {
-
-            font-size: 11px;
-
-            color: var(--gold3);
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 25px;
-
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            left: 35px;
+            right: 35px;
+            height: 2px;
+            background: var(--gold);
         }
 
-
-        .focus-card h3 {
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 34px;
-
-            color: white;
-
-            margin-bottom: 25px;
-
-        }
-
-
-        .stats-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(2,1fr);
-
-            gap: 1px;
-
-            background: rgba(255,255,255,.1);
-
-            border: 1px solid rgba(255,255,255,.1);
-
-        }
-
-
-        .stat {
-
-            padding: 22px;
-
-            background: rgba(13,30,69,.65);
-
-        }
-
-
-        .stat strong {
-
-            display: block;
-
-            font-family: "Cormorant Garamond", serif;
-
-            color: var(--gold2);
-
-            font-size: 34px;
-
-            line-height: 1;
-
-            margin-bottom: 7px;
-
-        }
-
-
-        .stat span {
-
-            font-size: 11px;
-
-            color: #C7D0E4;
-
-        }
-
-
-        .focus-message {
-
-            margin-top: 25px;
-
-            font-size: 13px;
-
-            color: #C7D0E4;
-
-        }
-
-
-        .focus-whatsapp {
-
-            display: inline-flex;
-
-            margin-top: 18px;
-
-            color: white;
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            border-bottom: 1px solid var(--gold2);
-
-            padding-bottom: 3px;
-
-        }
-
-
-        /* =====================================================
-           SECTION
-        ====================================================== */
-
-        section {
-
-            padding: 100px 0;
-
-        }
-
-
-        .section-heading {
-
-            max-width: 720px;
-
-            margin-bottom: 55px;
-
-        }
-
-
-        .section-eyebrow {
-
+        .hero-card-title {
             color: var(--gold);
-
-            text-transform: uppercase;
-
-            letter-spacing: 2.5px;
-
             font-size: 11px;
-
-            font-weight: 700;
-
-            margin-bottom: 12px;
-
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
-
-        .section-heading h2 {
-
+        .hero-card h2 {
+            color: var(--white);
             font-family: "Cormorant Garamond", serif;
+            font-size: 38px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
 
-            font-size: clamp(42px,5vw,64px);
+        .hero-card p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 14px;
+            line-height: 1.8;
+        }
 
-            color: var(--navy);
+        .hero-card-list {
+            margin-top: 28px;
+            display: grid;
+            gap: 13px;
+        }
 
-            line-height: 1;
+        .hero-card-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+        }
 
-            margin-bottom: 18px;
-
+        .hero-card-item span {
+            color: var(--gold);
+            font-size: 16px;
         }
 
 
-        .section-heading p {
-
-            color: var(--muted);
-
-            font-size: 15px;
-
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            ABOUT
-        ====================================================== */
+        ========================================================= */
 
         .about {
-
-            background: white;
-
+            background: var(--cream);
         }
-
 
         .about-grid {
-
             display: grid;
-
-            grid-template-columns: .9fr 1.1fr;
-
-            gap: 70px;
-
-            align-items: start;
-
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 80px;
+            align-items: center;
         }
 
-
-        .about-card {
-
-            background: var(--smoke);
-
-            padding: 45px;
-
-            border-left: 4px solid var(--gold);
-
+        .about-box {
+            position: relative;
+            min-height: 470px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
+        .about-box::before {
+            content: "";
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border: 1px solid rgba(201, 162, 39, 0.35);
+            border-radius: 50%;
+        }
 
-        .about-card h3 {
+        .about-box::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 1px solid rgba(201, 162, 39, 0.25);
+            border-radius: 50%;
+        }
 
+        .about-monogram {
+            position: relative;
+            z-index: 2;
+            width: 130px;
+            height: 130px;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-family: "Cormorant Garamond", serif;
-
-            font-size: 38px;
-
-            color: var(--navy);
-
-            margin-bottom: 18px;
-
+            font-size: 55px;
+            font-weight: 600;
         }
-
-
-        .about-card p {
-
-            color: var(--body);
-
-            font-size: 15px;
-
-        }
-
 
         .about-content p {
-
+            color: var(--muted);
             margin-bottom: 18px;
-
-            color: var(--body);
-
-            font-size: 15px;
-
         }
-
 
         .about-signature {
-
-            color: var(--gold);
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 26px;
-
-            font-weight: 700;
-
             margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(23, 32, 51, 0.1);
+        }
 
+        .about-signature strong {
+            display: block;
+            color: var(--navy);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
+        }
+
+        .about-signature span {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            VISION / MISSION
-        ====================================================== */
+        ========================================================= */
 
-        .vision-section {
-
-            background: var(--smoke);
-
+        .vision {
+            background: var(--navy);
+            color: var(--white);
         }
-
 
         .vision-grid {
-
             display: grid;
-
-            grid-template-columns: repeat(2,1fr);
-
-            gap: 25px;
-
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: rgba(201, 162, 39, 0.25);
         }
-
 
         .vision-card {
-
-            background: white;
-
-            padding: 40px;
-
-            border-top: 3px solid var(--gold);
-
+            background: var(--navy);
+            padding: 65px 50px;
         }
 
+        .vision-card .number {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
 
         .vision-card h3 {
-
             font-family: "Cormorant Garamond", serif;
-
-            font-size: 35px;
-
-            color: var(--navy);
-
-            margin-bottom: 14px;
-
+            color: var(--white);
+            font-size: 43px;
+            margin-bottom: 20px;
         }
-
 
         .vision-card p {
-
-            color: var(--muted);
-
-            font-size: 15px;
-
+            color: rgba(255, 255, 255, 0.62);
+            max-width: 500px;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            VALUES
-        ====================================================== */
+        ========================================================= */
+
+        .values {
+            background: var(--white);
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .values-header .section-description {
+            margin: 0 auto;
+        }
 
         .values-grid {
-
             display: grid;
-
-            grid-template-columns: repeat(4,1fr);
-
-            gap: 20px;
-
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #e8e5dc;
         }
-
 
         .value-card {
-
-            border: 1px solid var(--rule);
-
-            padding: 30px 25px;
-
-            transition: .25s ease;
-
+            background: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
         }
-
 
         .value-card:hover {
-
+            background: var(--cream);
             transform: translateY(-5px);
-
-            border-color: var(--gold);
-
-            box-shadow: 0 12px 35px rgba(13,30,69,.08);
-
         }
 
-
-        .value-number {
-
+        .value-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 20px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--gold);
-
             font-family: "Cormorant Garamond", serif;
-
-            font-size: 32px;
-
-            margin-bottom: 12px;
-
+            font-size: 23px;
         }
 
-
-        .value-card h4 {
-
+        .value-card h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
             color: var(--navy);
-
-            margin-bottom: 8px;
-
-            font-size: 16px;
-
+            margin-bottom: 10px;
         }
-
 
         .value-card p {
-
             color: var(--muted);
-
             font-size: 13px;
-
         }
 
 
-        /* =====================================================
+        /* =========================================================
            SERVICES
-        ====================================================== */
+        ========================================================= */
 
         .services {
-
-            background: var(--navy);
-
-            color: white;
-
+            background: var(--cream);
         }
 
-
-        .services .section-heading h2 {
-
-            color: white;
-
+        .services-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 55px;
         }
-
-
-        .services .section-heading p {
-
-            color: #BFC9E0;
-
-        }
-
 
         .services-grid {
-
             display: grid;
-
-            grid-template-columns: repeat(3,1fr);
-
-            gap: 18px;
-
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
-
 
         .service-card {
-
-            background: rgba(255,255,255,.045);
-
-            border: 1px solid rgba(255,255,255,.10);
-
-            padding: 32px;
-
-            transition: .25s ease;
-
+            position: relative;
+            background: var(--white);
+            padding: 40px 32px;
+            border: 1px solid transparent;
+            transition: var(--transition);
+            overflow: hidden;
         }
 
+        .service-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
 
         .service-card:hover {
-
-            transform: translateY(-5px);
-
-            background: rgba(255,255,255,.08);
-
-            border-color: rgba(232,174,58,.55);
-
+            border-color: rgba(201, 162, 39, 0.25);
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
         }
 
+        .service-card:hover::after {
+            width: 100%;
+        }
 
         .service-icon {
-
-            width: 48px;
-
-            height: 48px;
-
+            width: 52px;
+            height: 52px;
             border: 1px solid var(--gold);
-
+            color: var(--gold);
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
-            color: var(--gold2);
-
-            font-weight: 700;
-
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
             margin-bottom: 25px;
-
-            font-size: 17px;
-
         }
 
+        .service-number {
+            color: #b8bdc6;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
 
         .service-card h3 {
-
             font-family: "Cormorant Garamond", serif;
-
             font-size: 28px;
-
-            margin-bottom: 12px;
-
-            color: white;
-
+            line-height: 1.1;
+            color: var(--navy);
+            margin-bottom: 15px;
         }
-
 
         .service-card p {
-
+            color: var(--muted);
             font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
 
-            color: #C5CEE2;
+        .service-link {
+            color: var(--navy);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
 
+        .service-link:hover {
+            color: var(--gold);
         }
 
 
-        .services-cta {
-
-            margin-top: 35px;
-
-            display: flex;
-
-            justify-content: center;
-
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            WHY US
-        ====================================================== */
+        ========================================================= */
 
         .why-us {
-
-            background: var(--smoke);
-
+            background: var(--navy);
         }
-
 
         .why-grid {
-
             display: grid;
-
-            grid-template-columns: repeat(4,1fr);
-
-            gap: 20px;
-
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 80px;
+            align-items: center;
         }
 
-
-        .why-card {
-
-            background: white;
-
-            padding: 34px 27px;
-
-            border-bottom: 3px solid transparent;
-
-            transition: .25s ease;
-
+        .why-content .section-title {
+            color: var(--white);
         }
 
-
-        .why-card:hover {
-
-            border-bottom-color: var(--gold);
-
-            transform: translateY(-5px);
-
+        .why-content .section-description {
+            color: rgba(255, 255, 255, 0.62);
         }
 
+        .why-list {
+            display: grid;
+            gap: 0;
+        }
 
-        .why-card h3 {
+        .why-item {
+            display: grid;
+            grid-template-columns: 65px 1fr;
+            gap: 25px;
+            padding: 27px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-            color: var(--navy);
+        .why-item:first-child {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
+        .why-number {
+            color: var(--gold);
             font-family: "Cormorant Garamond", serif;
-
             font-size: 28px;
-
-            margin-bottom: 10px;
-
         }
 
+        .why-item h3 {
+            color: var(--white);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
 
-        .why-card p {
-
+        .why-item p {
+            color: rgba(255, 255, 255, 0.55);
             font-size: 13px;
-
-            color: var(--muted);
-
         }
 
 
-        /* =====================================================
+        /* =========================================================
            BOOKING CTA
-        ====================================================== */
+        ========================================================= */
 
         .booking-cta {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--gold),
-                    var(--gold2)
-                );
-
-            color: var(--navy);
-
-            padding: 70px 0;
-
+            background: var(--gold);
+            padding: 85px 0;
         }
-
 
         .booking-inner {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 40px;
-
         }
-
 
         .booking-inner h2 {
-
+            color: var(--navy);
             font-family: "Cormorant Garamond", serif;
-
-            font-size: clamp(38px,5vw,58px);
-
+            font-size: clamp(40px, 5vw, 62px);
             line-height: 1;
-
-            margin-bottom: 10px;
-
+            margin-bottom: 15px;
         }
-
 
         .booking-inner p {
-
+            color: rgba(7, 20, 38, 0.75);
             max-width: 650px;
-
-            font-size: 15px;
-
         }
 
-
-        .booking-inner .btn {
-
-            background: var(--navy);
-
-            color: white;
-
+        .booking-inner .btn-dark {
             flex-shrink: 0;
-
         }
 
 
-        .booking-inner .btn:hover {
-
-            background: var(--ink);
-
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            CONTACT
-        ====================================================== */
+        ========================================================= */
 
         .contact {
-
-            background: white;
-
+            background: var(--white);
         }
 
+        .contact-header {
+            margin-bottom: 55px;
+        }
 
         .contact-grid {
-
             display: grid;
-
-            grid-template-columns: repeat(3,1fr);
-
-            gap: 25px;
-
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
-
 
         .contact-card {
-
-            border: 1px solid var(--rule);
-
-            padding: 35px;
-
+            border: 1px solid #e7e7e7;
+            padding: 35px 30px;
+            transition: var(--transition);
         }
 
+        .contact-card:hover {
+            border-color: rgba(201, 162, 39, 0.4);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
 
         .contact-card h3 {
-
             font-family: "Cormorant Garamond", serif;
-
+            font-size: 25px;
             color: var(--navy);
-
-            font-size: 31px;
-
-            margin-bottom: 20px;
-
+            margin-bottom: 8px;
         }
 
-
-        .contact-item {
-
-            margin-bottom: 18px;
-
+        .contact-card p,
+        .contact-card a {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
         }
 
-
-        .contact-item small {
-
-            display: block;
-
-            text-transform: uppercase;
-
+        .contact-card a:hover {
             color: var(--gold);
-
-            font-size: 10px;
-
-            letter-spacing: 1.5px;
-
-            font-weight: 700;
-
-            margin-bottom: 3px;
-
         }
-
-
-        .contact-item a {
-
-            color: var(--body);
-
-            font-size: 14px;
-
-            transition: .2s ease;
-
-        }
-
-
-        .contact-item a:hover {
-
-            color: var(--gold);
-
-        }
-
 
         .social-list {
-
             display: flex;
-
-            flex-direction: column;
-
-            gap: 8px;
-
-        }
-
-
-        .social-list a {
-
-            font-size: 14px;
-
-            color: var(--body);
-
-        }
-
-
-        .social-list a:hover {
-
-            color: var(--gold);
-
-        }
-
-
-        .contact-whatsapp {
-
-            display: inline-flex;
-
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 15px;
+        }
 
-            background: var(--navy);
-
-            color: white !important;
-
-            padding: 12px 17px;
-
-            border-radius: 4px;
-
-            font-size: 13px !important;
-
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            height: 40px;
+            padding: 0 12px;
+            border: 1px solid #dedede;
+            color: var(--navy) !important;
+            font-size: 11px !important;
             font-weight: 700;
-
+            transition: var(--transition);
         }
 
-
-        .contact-whatsapp:hover {
-
+        .social-link:hover {
             background: var(--gold);
-
+            border-color: var(--gold);
+            color: var(--navy) !important;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            FOOTER
-        ====================================================== */
+        ========================================================= */
 
-        footer {
-
-            background: var(--ink);
-
-            color: white;
-
-            padding: 50px 0 25px;
-
+        .footer {
+            background: #040d18;
+            color: var(--white);
+            padding: 70px 0 25px;
         }
-
 
         .footer-grid {
-
             display: grid;
-
-            grid-template-columns: 1.3fr 1fr 1fr;
-
-            gap: 50px;
-
-            padding-bottom: 35px;
-
-            border-bottom: 1px solid rgba(255,255,255,.10);
-
+            grid-template-columns: 1.2fr 0.8fr 0.8fr;
+            gap: 70px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
 
         .footer-brand {
-
-            max-width: 450px;
-
+            max-width: 400px;
         }
 
-
-        .footer-brand h3 {
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 32px;
-
-            color: white;
-
-            margin-bottom: 12px;
-
+        .footer-brand .brand {
+            margin-bottom: 20px;
         }
-
 
         .footer-brand p {
-
-            color: #AEB9D0;
-
+            color: rgba(255, 255, 255, 0.5);
             font-size: 13px;
-
+            line-height: 1.9;
         }
 
-
-        .footer-column h4 {
-
-            color: var(--gold2);
-
-            font-size: 12px;
-
+        .footer-title {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-
-            letter-spacing: 1.5px;
-
-            margin-bottom: 17px;
-
+            margin-bottom: 20px;
         }
 
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
 
-        .footer-column a {
-
-            display: block;
-
-            color: #B9C3D9;
-
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.55);
             font-size: 13px;
-
-            margin-bottom: 7px;
-
-            transition: .2s ease;
-
+            transition: var(--transition);
         }
 
-
-        .footer-column a:hover {
-
-            color: white;
-
+        .footer-links a:hover {
+            color: var(--gold);
         }
-
 
         .footer-bottom {
-
+            padding-top: 25px;
             display: flex;
-
+            align-items: center;
             justify-content: space-between;
-
             gap: 20px;
+        }
 
-            padding-top: 22px;
-
-            color: #8995B0;
-
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
             font-size: 11px;
+        }
 
-            flex-wrap: wrap;
-
+        .footer-bottom span {
+            color: var(--gold);
         }
 
 
-        /* =====================================================
-           FLOATING WHATSAPP BUTTON
-        ====================================================== */
+        /* =========================================================
+           WHATSAPP FLOATING BUTTON
+        ========================================================= */
 
         .whatsapp-float {
-
             position: fixed;
-
-            right: 22px;
-
-            bottom: 22px;
-
+            right: 25px;
+            bottom: 25px;
+            z-index: 900;
             width: 58px;
-
             height: 58px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background: #25D366;
-
-            color: white;
-
             border-radius: 50%;
-
-            font-size: 20px;
-
-            font-weight: 700;
-
-            box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-
-            z-index: 9999;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #25d366;
+            color: white;
+            font-size: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
         }
-
 
         .whatsapp-float:hover {
-
-            transform: translateY(-5px) scale(1.05);
-
-            box-shadow: 0 15px 35px rgba(0,0,0,0.28);
-
+            transform: scale(1.08);
         }
 
 
-        .whatsapp-float span {
+        /* =========================================================
+           MOBILE
+        ========================================================= */
 
-            font-size: 19px;
-
-            font-weight: 700;
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE
-        ====================================================== */
-
-        @media (max-width: 1000px) {
-
-            .hero-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .about-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .values-grid {
-
-                grid-template-columns: repeat(2,1fr);
-
-            }
-
-
-            .services-grid {
-
-                grid-template-columns: repeat(2,1fr);
-
-            }
-
-
-            .why-grid {
-
-                grid-template-columns: repeat(2,1fr);
-
-            }
-
-
-            .contact-grid {
-
-                grid-template-columns: repeat(2,1fr);
-
-            }
-
-
-            .footer-grid {
-
-                grid-template-columns: 1fr 1fr;
-
-            }
-
-        }
-
-
-        @media (max-width: 760px) {
-
-            .nav-container {
-
-                min-height: 72px;
-
-            }
-
-
-            .mobile-menu {
-
-                display: block;
-
-            }
-
+        @media (max-width: 1050px) {
 
             .nav-links {
-
-                position: absolute;
-
-                left: 0;
-
-                right: 0;
-
-                top: 72px;
-
-                background: white;
-
-                border-bottom: 1px solid var(--rule);
-
-                display: none;
-
-                flex-direction: column;
-
-                align-items: stretch;
-
-                padding: 20px 5%;
-
-                gap: 0;
-
+                gap: 18px;
             }
-
-
-            .nav-links.active {
-
-                display: flex;
-
-            }
-
-
-            .nav-links a {
-
-                padding: 12px 0;
-
-            }
-
-
-            .nav-book {
-
-                text-align: center;
-
-                margin-top: 8px;
-
-            }
-
-
-            .hero {
-
-                padding: 80px 0 70px;
-
-            }
-
-
-            .hero h1 {
-
-                font-size: 56px;
-
-            }
-
 
             .hero-grid {
-
-                gap: 45px;
-
-            }
-
-
-            .stats-grid {
-
-                grid-template-columns: 1fr 1fr;
-
-            }
-
-
-            .vision-grid {
-
                 grid-template-columns: 1fr;
-
+                gap: 50px;
             }
 
+            .hero-card {
+                max-width: 600px;
+            }
+
+            .about-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-box {
+                min-height: 380px;
+            }
 
             .services-grid {
-
-                grid-template-columns: 1fr;
-
+                grid-template-columns: repeat(2, 1fr);
             }
-
-
-            .contact-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .booking-inner {
-
-                flex-direction: column;
-
-                align-items: flex-start;
-
-            }
-
-
-            .footer-grid {
-
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-
-            }
-
-        }
-
-
-        @media (max-width: 480px) {
-
-            section {
-
-                padding: 75px 0;
-
-            }
-
-
-            .brand-text {
-
-                display: none;
-
-            }
-
-
-            .hero h1 {
-
-                font-size: 48px;
-
-            }
-
-
-            .hero-description {
-
-                font-size: 15px;
-
-            }
-
-
-            .hero-buttons {
-
-                flex-direction: column;
-
-                align-items: stretch;
-
-            }
-
-
-            .btn {
-
-                width: 100%;
-
-            }
-
-
-            .hero-bottom {
-
-                gap: 18px;
-
-            }
-
-
-            .focus-card {
-
-                padding: 25px;
-
-            }
-
-
-            .stats-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
 
             .values-grid {
-
-                grid-template-columns: 1fr;
-
+                grid-template-columns: repeat(2, 1fr);
             }
 
-
-            .why-grid {
-
-                grid-template-columns: 1fr;
-
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
             }
-
-
-            .about-card {
-
-                padding: 30px;
-
-            }
-
-
-            .whatsapp-float {
-
-                width: 54px;
-
-                height: 54px;
-
-                right: 16px;
-
-                bottom: 16px;
-
-            }
-
         }
 
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                height: 74px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 74px;
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: var(--navy);
+                border-top: 1px solid rgba(201, 162, 39, 0.15);
+                padding: 10px 5%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 15px 5px;
+            }
+
+            .nav-cta {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero {
+                padding-top: 74px;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .services-header {
+                display: block;
+            }
+
+            .services-header .btn {
+                margin-top: 25px;
+            }
+
+            .booking-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .brand-text {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 120px;
+                padding-bottom: 80px;
+            }
+
+            .hero h1 {
+                font-size: 54px;
+            }
+
+            .hero-text {
+                font-size: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .hero-card {
+                padding: 35px 25px;
+            }
+
+            .hero-card h2 {
+                font-size: 32px;
+            }
+
+            .about-box {
+                min-height: 300px;
+            }
+
+            .about-monogram {
+                width: 100px;
+                height: 100px;
+                font-size: 42px;
+            }
+
+            .values-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-card {
+                padding: 45px 30px;
+            }
+
+            .vision-card h3 {
+                font-size: 36px;
+            }
+
+            .why-item {
+                grid-template-columns: 45px 1fr;
+                gap: 15px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .whatsapp-float {
+                right: 18px;
+                bottom: 18px;
+                width: 54px;
+                height: 54px;
+            }
+        }
     </style>
-
 </head>
-
 
 <body>
 
 
-    <!-- =====================================================
-         TOP LINE
-    ====================================================== -->
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
 
-    <div class="top-line"></div>
+    <header class="navbar">
 
+        <div class="nav-inner">
 
-    <!-- =====================================================
-         NAVBAR
-    ====================================================== -->
+            <a href="{% url 'home' %}" class="brand">
 
-    <nav class="navbar">
-
-        <div class="nav-container">
-
-            <a href="/" class="brand">
-
-                <div class="brand-logo">
-                    <span>MJ</span>
+                <div class="brand-mark">
+                    MJ
                 </div>
 
                 <div class="brand-text">
 
-                    <strong>MJ TECHNOLOGIES</strong>
+                    <div class="brand-name">
+                        MJ TECHNOLOGIES
+                    </div>
 
-                    <small>
+                    <div class="brand-tagline">
                         HOME OF EXCELLENCE
-                    </small>
+                    </div>
 
                 </div>
 
@@ -1961,349 +1264,235 @@
 
 
             <button
-                class="mobile-menu"
-                onclick="toggleMenu()"
-                aria-label="Open menu"
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
             >
                 ☰
             </button>
 
 
-            <div
-                class="nav-links"
-                id="navLinks"
-            >
+            <ul class="nav-links" id="navLinks">
 
-                <a href="/">
-                    Home
-                </a>
-
-                <a href="#about">
-                    About
-                </a>
-
-                <a href="#services">
-                    Services
-                </a>
-
-                <a href="#why-us">
-                    Why Us
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
-
-                <a
-                    href="/book-service/"
-                    class="nav-book"
-                >
-                    Book a Service
-                </a>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <header class="hero">
-
-        <div class="container hero-grid">
-
-
-            <div class="hero-content">
-
-                <div class="hero-logo">
-
-                    <span>MJ</span>
-
-                </div>
-
-
-                <div class="eyebrow">
-
-                    Technology · Business · Digital
-
-                </div>
-
-
-                <h1>
-
-                    Building Africa's
-                    <span>
-                        Digital Future
-                    </span>
-
-                </h1>
-
-
-                <p class="hero-description">
-
-                    MJ Technologies & Business Group Ltd
-                    provides professional technology, digital,
-                    business, branding and development solutions
-                    designed to help individuals, businesses and
-                    organizations grow with confidence.
-
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="/book-service/"
-                        class="btn btn-primary"
-                    >
-                        Book a Service
+                <li>
+                    <a href="{% url 'home' %}">
+                        Home
                     </a>
+                </li>
 
-
-                    <a
-                        href="#services"
-                        class="btn btn-outline"
-                    >
-                        Explore Services
+                <li>
+                    <a href="#about">
+                        About
                     </a>
+                </li>
 
-                </div>
+                <li>
+                    <a href="#services">
+                        Services
+                    </a>
+                </li>
 
+                <li>
+                    <a href="{% url 'pricing' %}">
+                        Pricing
+                    </a>
+                </li>
 
-                <div class="hero-bottom">
+                <li>
+                    <a href="#why-us">
+                        Why Us
+                    </a>
+                </li>
 
-                    <div class="hero-bottom-item">
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
 
-                        <strong>
-                            HOME OF EXCELLENCE
-                        </strong>
+                <li>
+                    <a
+                        href="{% url 'book_service' %}"
+                        class="nav-cta"
+                    >
+                        Book Service
+                    </a>
+                </li>
 
-                        Technology & Business Solutions
-
-                    </div>
-
-
-                    <div class="hero-bottom-item">
-
-                        <strong>
-                            Dodoma
-                        </strong>
-
-                        Tanzania
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- HERO FOCUS -->
-
-            <div class="focus-card">
-
-                <div class="focus-label">
-                    Our Focus
-                </div>
-
-
-                <h3>
-                    Technology that
-                    moves business forward.
-                </h3>
-
-
-                <div class="stats-grid">
-
-
-                    <div class="stat">
-
-                        <strong>
-                            7+
-                        </strong>
-
-                        <span>
-                            Core Services
-                        </span>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <strong>
-                            24/7
-                        </strong>
-
-                        <span>
-                            Digital Access
-                        </span>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <strong>
-                            100%
-                        </strong>
-
-                        <span>
-                            Customer Focus
-                        </span>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <strong>
-                            TZ
-                        </strong>
-
-                        <span>
-                            Tanzania
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-                <p class="focus-message">
-
-                    From websites and software to digital
-                    marketing, branding and business solutions,
-                    we help transform ideas into practical,
-                    professional results.
-
-                </p>
-
-
-                <a
-                    href="https://wa.me/255789104216?text=Hello%20MJ%20Technologies%2C%20I%20would%20like%20to%20make%20an%20inquiry."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="focus-whatsapp"
-                >
-                    WhatsApp Us →
-                </a>
-
-            </div>
+            </ul>
 
         </div>
 
     </header>
 
 
-    <!-- =====================================================
-         ABOUT
-    ====================================================== -->
 
-    <section
-        class="about"
-        id="about"
-    >
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
 
-        <div class="container">
+    <main>
 
+        <section class="hero">
 
-            <div class="section-heading">
+            <div class="container hero-grid">
 
-                <div class="section-eyebrow">
-                    About Us
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        Technology • Business • Digital
+                    </div>
+
+                    <h1>
+                        Building
+                        <span>Digital</span>
+                        Excellence.
+                    </h1>
+
+                    <p class="hero-text">
+                        MJ Technologies & Business Group Ltd provides
+                        professional technology, digital and business
+                        solutions designed to help individuals, startups
+                        and established businesses grow with confidence.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="{% url 'book_service' %}"
+                            class="btn btn-gold"
+                        >
+                            Book a Service
+                            →
+                        </a>
+
+                        <a
+                            href="#services"
+                            class="btn btn-outline"
+                        >
+                            Explore Services
+                        </a>
+
+                    </div>
+
                 </div>
 
 
-                <h2>
-                    Built for progress.
-                    Designed for excellence.
-                </h2>
+                <div class="hero-card">
 
+                    <div class="hero-card-title">
+                        MJ Technologies
+                    </div>
 
-                <p>
+                    <h2>
+                        Your Partner in
+                        Digital Growth.
+                    </h2>
 
-                    We combine technology, creativity and
-                    business knowledge to deliver solutions
-                    that create practical value.
+                    <p>
+                        From websites and software to business
+                        registration, branding, digital marketing and
+                        consultancy — we bring technology and business
+                        together.
+                    </p>
 
-                </p>
+                    <div class="hero-card-list">
+
+                        <div class="hero-card-item">
+                            <span>✦</span>
+                            Professional Service
+                        </div>
+
+                        <div class="hero-card-item">
+                            <span>✦</span>
+                            Reliable Support
+                        </div>
+
+                        <div class="hero-card-item">
+                            <span>✦</span>
+                            Quality Delivery
+                        </div>
+
+                        <div class="hero-card-item">
+                            <span>✦</span>
+                            Customer-Focused Solutions
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
-
-            <div class="about-grid">
-
-
-                <div class="about-card">
-
-                    <h3>
-                        HOME OF
-                        <br>
-                        EXCELLENCE
-                    </h3>
+        </section>
 
 
-                    <p>
 
-                        Professional solutions for a
-                        digital and growing Africa.
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
 
-                    </p>
+        <section
+            class="section about"
+            id="about"
+        >
+
+            <div class="container about-grid">
+
+                <div class="about-box">
+
+                    <div class="about-monogram">
+                        MJ
+                    </div>
 
                 </div>
 
 
                 <div class="about-content">
 
-                    <p>
+                    <span class="section-label">
+                        About Us
+                    </span>
 
-                        <strong>
-                            MJ Technologies & Business Group Ltd
-                        </strong>
-                        is a technology and business solutions
-                        company based in Dodoma, Tanzania.
+                    <h2 class="section-title">
+                        Technology with
+                        Purpose.
+                    </h2>
 
-                    </p>
-
-
-                    <p>
-
-                        We provide professional services across
-                        technology, digital solutions, business
-                        development, branding and creative services.
-
-                    </p>
-
+                    <div class="gold-line"></div>
 
                     <p>
-
-                        Our approach is simple: understand the
-                        client's needs, build practical solutions
-                        and deliver quality results with reliable
-                        support.
-
+                        MJ Technologies & Business Group Ltd is a
+                        technology and business solutions company focused
+                        on delivering professional, practical and
+                        reliable solutions for modern businesses.
                     </p>
-
 
                     <p>
-
-                        Whether you are an individual,
-                        entrepreneur, small business, growing
-                        company or organization, we are ready to
-                        help you move forward.
-
+                        We combine technology, creativity and business
+                        knowledge to help our clients establish their
+                        digital presence, improve operations and create
+                        stronger brands.
                     </p>
 
+                    <p>
+                        Whether you need a professional website, software
+                        solution, company registration, branding,
+                        digital marketing or business consultancy, we are
+                        ready to help turn your ideas into results.
+                    </p>
 
                     <div class="about-signature">
 
-                        MJ Technologies
+                        <strong>
+                            MJ Technologies
+                        </strong>
+
+                        <span>
+                            Home of Excellence
+                        </span>
 
                     </div>
 
@@ -2311,628 +1500,697 @@
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =====================================================
-         VISION / MISSION
-    ====================================================== -->
 
-    <section class="vision-section">
+        <!-- =====================================================
+             VISION / MISSION
+        ====================================================== -->
 
-        <div class="container">
+        <section class="section vision">
+
+            <div class="container">
+
+                <div class="vision-grid">
+
+                    <div class="vision-card">
+
+                        <div class="number">
+                            01 — VISION
+                        </div>
+
+                        <h3>
+                            To Build a Smarter
+                            Digital Future.
+                        </h3>
+
+                        <p>
+                            To become a trusted technology and business
+                            solutions partner by creating innovative,
+                            accessible and sustainable digital solutions
+                            that contribute to business growth.
+                        </p>
+
+                    </div>
 
 
-            <div class="vision-grid">
+                    <div class="vision-card">
 
+                        <div class="number">
+                            02 — MISSION
+                        </div>
 
-                <div class="vision-card">
+                        <h3>
+                            Turning Ideas Into
+                            Real Solutions.
+                        </h3>
 
-                    <h3>
-                        Our Vision
-                    </h3>
+                        <p>
+                            To provide high-quality technology, digital
+                            and business services that solve real
+                            problems, improve efficiency and help our
+                            clients achieve their goals.
+                        </p>
 
-
-                    <p>
-
-                        To become a trusted technology and
-                        business solutions partner in Africa,
-                        enabling individuals and organizations
-                        to achieve sustainable growth through
-                        innovation and digital transformation.
-
-                    </p>
+                    </div>
 
                 </div>
-
-
-                <div class="vision-card">
-
-                    <h3>
-                        Our Mission
-                    </h3>
-
-
-                    <p>
-
-                        To deliver reliable, professional and
-                        customer-focused technology, digital,
-                        branding and business solutions that
-                        turn ideas into meaningful results.
-
-                    </p>
-
-                </div>
-
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =====================================================
-         CORE VALUES
-    ====================================================== -->
 
-    <section>
+        <!-- =====================================================
+             VALUES
+        ====================================================== -->
 
-        <div class="container">
+        <section class="section values">
 
+            <div class="container">
 
-            <div class="section-heading">
+                <div class="values-header">
 
-                <div class="section-eyebrow">
-                    Our Values
+                    <span class="section-label">
+                        Our Values
+                    </span>
+
+                    <h2 class="section-title">
+                        What We Stand For
+                    </h2>
+
+                    <p class="section-description">
+                        Every solution we deliver is guided by principles
+                        that keep our work professional, reliable and
+                        focused on our clients.
+                    </p>
+
                 </div>
 
 
-                <h2>
-                    What drives us.
-                </h2>
+                <div class="values-grid">
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+                            01
+                        </div>
+
+                        <h3>
+                            Excellence
+                        </h3>
+
+                        <p>
+                            We aim for quality and professional standards
+                            in everything we deliver.
+                        </p>
+
+                    </div>
 
 
-                <p>
+                    <div class="value-card">
 
-                    The principles behind every service,
-                    solution and relationship.
+                        <div class="value-icon">
+                            02
+                        </div>
 
-                </p>
+                        <h3>
+                            Integrity
+                        </h3>
+
+                        <p>
+                            We build lasting relationships through honesty,
+                            transparency and responsibility.
+                        </p>
+
+                    </div>
+
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+                            03
+                        </div>
+
+                        <h3>
+                            Innovation
+                        </h3>
+
+                        <p>
+                            We embrace technology and creative ideas to
+                            develop practical solutions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+                            04
+                        </div>
+
+                        <h3>
+                            Customer Focus
+                        </h3>
+
+                        <p>
+                            We listen to our clients and create solutions
+                            around their real needs.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
+        </section>
 
-            <div class="values-grid">
 
 
-                <div class="value-card">
+        <!-- =====================================================
+             SERVICES
+        ====================================================== -->
 
-                    <div class="value-number">
-                        01
+        <section
+            class="section services"
+            id="services"
+        >
+
+            <div class="container">
+
+                <div class="services-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            What We Do
+                        </span>
+
+                        <h2 class="section-title">
+                            Our Services
+                        </h2>
+
+                        <p class="section-description">
+                            Professional technology and business
+                            solutions designed to help you start, grow
+                            and manage your business.
+                        </p>
+
                     </div>
 
-                    <h4>
-                        Professional Service
-                    </h4>
-
-                    <p>
-
-                        We maintain professional standards
-                        from consultation to delivery.
-
-                    </p>
+                    <a
+                        href="{% url 'pricing' %}"
+                        class="btn btn-dark"
+                    >
+                        View Pricing
+                        →
+                    </a>
 
                 </div>
 
 
-                <div class="value-card">
+                <div class="services-grid">
 
-                    <div class="value-number">
-                        02
-                    </div>
 
-                    <h4>
-                        Reliable Support
-                    </h4>
+                    <!-- SERVICE 01 -->
 
-                    <p>
+                    <article class="service-card">
 
-                        We remain available to support our
-                        clients beyond the initial delivery.
+                        <div class="service-icon">
+                            01
+                        </div>
 
-                    </p>
+                        <div class="service-number">
+                            SERVICE 01
+                        </div>
+
+                        <h3>
+                            Website & Software Development
+                        </h3>
+
+                        <p>
+                            Professional websites, business systems,
+                            dashboards and custom software solutions
+                            built to meet your specific requirements.
+                        </p>
+
+                        <a
+                            href="{% url 'pricing' %}"
+                            class="service-link"
+                        >
+                            View Packages →
+                        </a>
+
+                    </article>
+
+
+                    <!-- SERVICE 02 -->
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            02
+                        </div>
+
+                        <div class="service-number">
+                            SERVICE 02
+                        </div>
+
+                        <h3>
+                            Online Applications & Digital Services
+                        </h3>
+
+                        <p>
+                            Assistance with online applications,
+                            registrations, digital processes and other
+                            technology-based services.
+                        </p>
+
+                        <a
+                            href="{% url 'book_service' %}"
+                            class="service-link"
+                        >
+                            Request Service →
+                        </a>
+
+                    </article>
+
+
+                    <!-- SERVICE 03 -->
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            03
+                        </div>
+
+                        <div class="service-number">
+                            SERVICE 03
+                        </div>
+
+                        <h3>
+                            Company Registration & Business Compliance
+                        </h3>
+
+                        <p>
+                            Professional support for business setup,
+                            company registration and essential business
+                            compliance processes.
+                        </p>
+
+                        <a
+                            href="{% url 'book_service' %}"
+                            class="service-link"
+                        >
+                            Get Assistance →
+                        </a>
+
+                    </article>
+
+
+                    <!-- SERVICE 04 -->
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            04
+                        </div>
+
+                        <div class="service-number">
+                            SERVICE 04
+                        </div>
+
+                        <h3>
+                            Graphic Design, Branding & Printing
+                        </h3>
+
+                        <p>
+                            Logos, business cards, posters, social media
+                            designs, branding materials and professional
+                            print-ready designs.
+                        </p>
+
+                        <a
+                            href="{% url 'book_service' %}"
+                            class="service-link"
+                        >
+                            Start a Project →
+                        </a>
+
+                    </article>
+
+
+                    <!-- SERVICE 05 -->
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            05
+                        </div>
+
+                        <div class="service-number">
+                            SERVICE 05
+                        </div>
+
+                        <h3>
+                            Digital Marketing & Social Media
+                        </h3>
+
+                        <p>
+                            Digital marketing strategies, social media
+                            management, online promotion and content
+                            solutions for businesses.
+                        </p>
+
+                        <a
+                            href="{% url 'book_service' %}"
+                            class="service-link"
+                        >
+                            Grow Your Brand →
+                        </a>
+
+                    </article>
+
+
+                    <!-- SERVICE 06 -->
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            06
+                        </div>
+
+                        <div class="service-number">
+                            SERVICE 06
+                        </div>
+
+                        <h3>
+                            Business Consultancy & Development
+                        </h3>
+
+                        <p>
+                            Practical business guidance, development
+                            strategies and support for entrepreneurs and
+                            growing businesses.
+                        </p>
+
+                        <a
+                            href="{% url 'book_service' %}"
+                            class="service-link"
+                        >
+                            Book Consultation →
+                        </a>
+
+                    </article>
+
+
+                    <!-- SERVICE 07 -->
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            07
+                        </div>
+
+                        <div class="service-number">
+                            SERVICE 07
+                        </div>
+
+                        <h3>
+                            Technology & Digital Solutions
+                        </h3>
+
+                        <p>
+                            Technology solutions designed to improve
+                            business operations, productivity and digital
+                            transformation.
+                        </p>
+
+                        <a
+                            href="{% url 'book_service' %}"
+                            class="service-link"
+                        >
+                            Find a Solution →
+                        </a>
+
+                    </article>
+
+
+                    <!-- SERVICE 08 -->
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            08
+                        </div>
+
+                        <div class="service-number">
+                            YOUR IDEA
+                        </div>
+
+                        <h3>
+                            Custom Digital Solutions
+                        </h3>
+
+                        <p>
+                            Have a unique project or business idea?
+                            Talk to us and we can discuss a solution
+                            designed specifically for your needs.
+                        </p>
+
+                        <a
+                            href="{% url 'book_service' %}"
+                            class="service-link"
+                        >
+                            Let's Discuss →
+                        </a>
+
+                    </article>
+
 
                 </div>
-
-
-                <div class="value-card">
-
-                    <div class="value-number">
-                        03
-                    </div>
-
-                    <h4>
-                        Quality Delivery
-                    </h4>
-
-                    <p>
-
-                        We focus on practical, quality and
-                        sustainable results.
-
-                    </p>
-
-                </div>
-
-
-                <div class="value-card">
-
-                    <div class="value-number">
-                        04
-                    </div>
-
-                    <h4>
-                        Customer-Focused Solutions
-                    </h4>
-
-                    <p>
-
-                        Every solution starts with understanding
-                        the customer's real needs.
-
-                    </p>
-
-                </div>
-
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =====================================================
-         SERVICES
-    ====================================================== -->
 
-    <section
-        class="services"
-        id="services"
-    >
+        <!-- =====================================================
+             WHY US
+        ====================================================== -->
 
-        <div class="container">
+        <section
+            class="section why-us"
+            id="why-us"
+        >
 
+            <div class="container why-grid">
 
-            <div class="section-heading">
+                <div class="why-content">
 
-                <div class="section-eyebrow">
-                    What We Do
+                    <span class="section-label">
+                        Why MJ Technologies?
+                    </span>
+
+                    <h2 class="section-title">
+                        Built Around
+                        Your Success.
+                    </h2>
+
+                    <div class="gold-line"></div>
+
+                    <p class="section-description">
+                        We don't just provide a service. We work to
+                        understand your goals and deliver solutions that
+                        create real value for your business.
+                    </p>
+
                 </div>
 
 
-                <h2>
-                    Our Core Services
-                </h2>
+                <div class="why-list">
+
+                    <div class="why-item">
+
+                        <div class="why-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Professional Service
+                            </h3>
+
+                            <p>
+                                We approach every project with
+                                professionalism, attention to detail and
+                                clear communication.
+                            </p>
+
+                        </div>
+
+                    </div>
 
 
-                <p>
+                    <div class="why-item">
 
-                    Professional solutions designed to support
-                    technology, business growth and digital
-                    transformation.
+                        <div class="why-number">
+                            02
+                        </div>
 
-                </p>
+                        <div>
+
+                            <h3>
+                                Reliable Support
+                            </h3>
+
+                            <p>
+                                We remain available to support our clients
+                                before, during and after project delivery.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-item">
+
+                        <div class="why-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Quality Delivery
+                            </h3>
+
+                            <p>
+                                Our goal is to deliver solutions that are
+                                practical, modern, functional and aligned
+                                with your requirements.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-item">
+
+                        <div class="why-number">
+                            04
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Customer-Focused Solutions
+                            </h3>
+
+                            <p>
+                                Your needs come first. We tailor our
+                                services around your objectives and budget.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
-
-            <div class="services-grid">
-
-
-                <!-- SERVICE 01 -->
-
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        &lt;/&gt;
-                    </div>
+        </section>
 
 
-                    <h3>
-                        Website & Software Development
-                    </h3>
 
+        <!-- =====================================================
+             BOOKING CTA
+        ====================================================== -->
+
+        <section class="booking-cta">
+
+            <div class="container booking-inner">
+
+                <div>
+
+                    <h2>
+                        Ready to Build
+                        Something Great?
+                    </h2>
 
                     <p>
-
-                        Professional websites, web applications,
-                        software systems and digital platforms
-                        designed around your business needs.
-
+                        Tell us what you need and let MJ Technologies
+                        help turn your idea into a professional solution.
                     </p>
 
                 </div>
-
-
-                <!-- SERVICE 02 -->
-
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        02
-                    </div>
-
-
-                    <h3>
-                        Online Applications & Digital Services
-                    </h3>
-
-
-                    <p>
-
-                        Digital applications, online systems,
-                        forms and technology services that make
-                        business processes easier and more efficient.
-
-                    </p>
-
-                </div>
-
-
-                <!-- SERVICE 03 -->
-
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        03
-                    </div>
-
-
-                    <h3>
-                        Company Registration & Business Compliance
-                    </h3>
-
-
-                    <p>
-
-                        Support with business registration,
-                        documentation and compliance-related
-                        processes.
-
-                    </p>
-
-                </div>
-
-
-                <!-- SERVICE 04 -->
-
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        04
-                    </div>
-
-
-                    <h3>
-                        Graphic Design, Branding & Printing
-                    </h3>
-
-
-                    <p>
-
-                        Logos, brand identity, marketing materials,
-                        posters, business cards and professional
-                        printing solutions.
-
-                    </p>
-
-                </div>
-
-
-                <!-- SERVICE 05 -->
-
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        05
-                    </div>
-
-
-                    <h3>
-                        Digital Marketing & Social Media
-                    </h3>
-
-
-                    <p>
-
-                        Digital marketing strategies, social media
-                        content and online visibility solutions
-                        designed to connect businesses with customers.
-
-                    </p>
-
-                </div>
-
-
-                <!-- SERVICE 06 -->
-
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        06
-                    </div>
-
-
-                    <h3>
-                        Business Consultancy & Development
-                    </h3>
-
-
-                    <p>
-
-                        Practical business guidance, development
-                        support and digital strategies for entrepreneurs
-                        and growing businesses.
-
-                    </p>
-
-                </div>
-
-
-                <!-- SERVICE 07 -->
-
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        07
-                    </div>
-
-
-                    <h3>
-                        Technology & Digital Solutions
-                    </h3>
-
-
-                    <p>
-
-                        Customized technology solutions designed
-                        to solve operational challenges and improve
-                        productivity.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-            <div class="services-cta">
 
                 <a
-                    href="/book-service/"
-                    class="btn btn-primary"
+                    href="{% url 'book_service' %}"
+                    class="btn btn-dark"
                 >
                     Book a Service
+                    →
                 </a>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =====================================================
-         WHY MJ TECHNOLOGIES
-    ====================================================== -->
 
-    <section
-        class="why-us"
-        id="why-us"
-    >
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
 
-        <div class="container">
+        <section
+            class="section contact"
+            id="contact"
+        >
 
+            <div class="container">
 
-            <div class="section-heading">
+                <div class="contact-header">
 
-                <div class="section-eyebrow">
-                    Why MJ Technologies?
-                </div>
+                    <span class="section-label">
+                        Get In Touch
+                    </span>
 
+                    <h2 class="section-title">
+                        Let's Work Together.
+                    </h2>
 
-                <h2>
-                    A partner focused on your progress.
-                </h2>
-
-
-                <p>
-
-                    We combine professionalism, technology
-                    and customer understanding to deliver
-                    solutions that make sense for your goals.
-
-                </p>
-
-            </div>
-
-
-            <div class="why-grid">
-
-
-                <div class="why-card">
-
-                    <h3>
-                        Professional Service
-                    </h3>
-
-
-                    <p>
-
-                        We approach every project with
-                        professionalism and attention to detail.
-
+                    <p class="section-description">
+                        Have a question, project or business idea?
+                        Contact MJ Technologies & Business Group Ltd.
                     </p>
 
                 </div>
 
 
-                <div class="why-card">
+                <div class="contact-grid">
 
-                    <h3>
-                        Reliable Support
-                    </h3>
 
+                    <!-- PHONE -->
 
-                    <p>
+                    <div class="contact-card">
 
-                        We provide support and communication
-                        throughout the project and beyond.
+                        <div class="contact-icon">
+                            ☎
+                        </div>
 
-                    </p>
-
-                </div>
-
-
-                <div class="why-card">
-
-                    <h3>
-                        Quality Delivery
-                    </h3>
-
-
-                    <p>
-
-                        We focus on delivering solutions that
-                        are practical, usable and professional.
-
-                    </p>
-
-                </div>
-
-
-                <div class="why-card">
-
-                    <h3>
-                        Customer-Focused Solutions
-                    </h3>
-
-
-                    <p>
-
-                        Your needs remain at the center of
-                        the solution we build.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         BOOKING CTA
-    ====================================================== -->
-
-    <section class="booking-cta">
-
-        <div class="container booking-inner">
-
-
-            <div>
-
-                <h2>
-                    Have an idea?
-                    Let's build it.
-                </h2>
-
-
-                <p>
-
-                    Tell us what you need and let MJ Technologies
-                    help turn your idea into a professional,
-                    practical solution.
-
-                </p>
-
-            </div>
-
-
-            <a
-                href="/book-service/"
-                class="btn"
-            >
-                Start a Project →
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CONTACT
-    ====================================================== -->
-
-    <section
-        class="contact"
-        id="contact"
-    >
-
-        <div class="container">
-
-
-            <div class="section-heading">
-
-                <div class="section-eyebrow">
-                    Contact Us
-                </div>
-
-
-                <h2>
-                    Let's talk about your next project.
-                </h2>
-
-
-                <p>
-
-                    Reach us directly through phone, email,
-                    WhatsApp or our social media channels.
-
-                </p>
-
-            </div>
-
-
-            <div class="contact-grid">
-
-
-                <!-- CONTACT DETAILS -->
-
-                <div class="contact-card">
-
-                    <h3>
-                        Get in Touch
-                    </h3>
-
-
-                    <div class="contact-item">
-
-                        <small>
-                            Phone
-                        </small>
-
+                        <h3>
+                            Call / WhatsApp
+                        </h3>
 
                         <a
                             href="tel:+255789104216"
@@ -2940,15 +2198,30 @@
                             +255 789 104 216
                         </a>
 
+                        <br>
+
+                        <a
+                            href="https://wa.me/255789104216?text=Hello%20MJ%20Technologies%2C%20I%20would%20like%20to%20make%20an%20inquiry"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Chat on WhatsApp →
+                        </a>
+
                     </div>
 
 
-                    <div class="contact-item">
+                    <!-- EMAIL -->
 
-                        <small>
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+                            @
+                        </div>
+
+                        <h3>
                             Email
-                        </small>
-
+                        </h3>
 
                         <a
                             href="mailto:mjtechnologies51@gmail.com"
@@ -2956,229 +2229,284 @@
                             mjtechnologies51@gmail.com
                         </a>
 
-                    </div>
-
-
-                    <div class="contact-item">
-
-                        <small>
-                            WhatsApp
-                        </small>
-
-
-                        <a
-                            href="https://wa.me/255789104216?text=Hello%20MJ%20Technologies%2C%20I%20would%20like%20to%20make%20an%20inquiry."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            +255 789 104 216
-                        </a>
+                        <p>
+                            Send us your enquiry or project details.
+                        </p>
 
                     </div>
 
 
-                    <a
-                        href="https://wa.me/255789104216?text=Hello%20MJ%20Technologies%2C%20I%20would%20like%20to%20make%20an%20inquiry."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="contact-whatsapp"
-                    >
-                        WhatsApp Us →
-                    </a>
+                    <!-- LOCATION -->
 
-                </div>
+                    <div class="contact-card">
 
+                        <div class="contact-icon">
+                            ⌖
+                        </div>
 
-                <!-- LOCATION -->
+                        <h3>
+                            Location
+                        </h3>
 
-                <div class="contact-card">
-
-                    <h3>
-                        Our Location
-                    </h3>
-
-
-                    <div class="contact-item">
-
-                        <small>
-                            Office
-                        </small>
-
+                        <p>
+                            Dodoma — Barabara ya Nane, One Way
+                        </p>
 
                         <a
                             href="https://www.google.com/maps/search/?api=1&query=Dodoma%2C%20Tanzania"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Dodoma, Tanzania
+                            Open Google Maps →
                         </a>
 
                     </div>
 
 
-                    <div class="contact-item">
+                    <!-- SOCIAL MEDIA -->
 
-                        <small>
-                            Service Area
-                        </small>
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+                            ◎
+                        </div>
+
+                        <h3>
+                            Social Media
+                        </h3>
+
+                        <p>
+                            Follow MJ Technologies for updates,
+                            services and business tips.
+                        </p>
+
+                        <div class="social-list">
+
+                            <a
+                                href="https://www.instagram.com/mjtech_ltd/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-link"
+                            >
+                                Instagram
+                            </a>
+
+                            <a
+                                href="https://www.tiktok.com/@mjtech_ltd"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-link"
+                            >
+                                TikTok
+                            </a>
+
+                        </div>
+
+                    </div>
 
 
-                        <a href="#services">
-                            Tanzania & Digital Services
+                    <!-- WEBSITE -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+                            ◇
+                        </div>
+
+                        <h3>
+                            Website
+                        </h3>
+
+                        <p>
+                            Visit our official website for more
+                            information about our services.
+                        </p>
+
+                        <a
+                            href="https://mjtechnologies.co.tz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            mjtechnologies.co.tz →
                         </a>
 
                     </div>
 
 
-                    <div class="contact-item">
+                    <!-- BOOKING -->
 
-                        <small>
-                            Availability
-                        </small>
+                    <div class="contact-card">
 
+                        <div class="contact-icon">
+                            ✓
+                        </div>
 
-                        <a href="/book-service/">
-                            Online Booking Available
+                        <h3>
+                            Book a Service
+                        </h3>
+
+                        <p>
+                            Ready to start? Submit your service request
+                            online and we will get back to you.
+                        </p>
+
+                        <a href="{% url 'book_service' %}">
+                            Start Booking →
                         </a>
 
                     </div>
+
 
                 </div>
 
+            </div>
 
-                <!-- SOCIAL MEDIA -->
+        </section>
 
-                <div class="social-list">
-
-    <a
-        href="https://www.instagram.com/mjtech_ltd/"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        Instagram · @mjtech_ltd
-    </a>
+    </main>
 
 
-    <a
-        href="https://www.tiktok.com/@mjtech_ltd"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        TikTok · @mjtech_ltd
-    </a>
 
-
-    <a href="#">
-        Facebook · MJ Technologies
-    </a>
-
-
-    <a href="#">
-        LinkedIn · MJ Technologies
-    </a>
-
-
-    <a href="#">
-        YouTube · MJ Technologies
-    </a>
-
-</div>
-
-    <!-- =====================================================
+    <!-- =========================================================
          FOOTER
-    ====================================================== -->
+    ========================================================== -->
 
-    <footer>
+    <footer class="footer">
 
         <div class="container">
-
 
             <div class="footer-grid">
 
 
                 <div class="footer-brand">
 
-                    <h3>
-                        MJ Technologies
-                    </h3>
+                    <a
+                        href="{% url 'home' %}"
+                        class="brand"
+                    >
 
+                        <div class="brand-mark">
+                            MJ
+                        </div>
+
+                        <div class="brand-text">
+
+                            <div class="brand-name">
+                                MJ TECHNOLOGIES
+                            </div>
+
+                            <div class="brand-tagline">
+                                HOME OF EXCELLENCE
+                            </div>
+
+                        </div>
+
+                    </a>
 
                     <p>
-
-                        MJ Technologies & Business Group Ltd
-                        is committed to delivering professional
-                        technology, digital, branding and business
-                        solutions.
-
+                        MJ Technologies & Business Group Ltd provides
+                        professional technology, digital and business
+                        solutions designed to help individuals and
+                        businesses grow.
                     </p>
 
                 </div>
 
 
-                <div class="footer-column">
+                <div>
 
-                    <h4>
+                    <div class="footer-title">
                         Quick Links
-                    </h4>
+                    </div>
 
+                    <ul class="footer-links">
 
-                    <a href="/">
-                        Home
-                    </a>
+                        <li>
+                            <a href="{% url 'home' %}">
+                                Home
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="#about">
+                                About Us
+                            </a>
+                        </li>
 
-                    <a href="#about">
-                        About
-                    </a>
+                        <li>
+                            <a href="#services">
+                                Services
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="{% url 'pricing' %}">
+                                Pricing
+                            </a>
+                        </li>
 
-                    <a href="#services">
-                        Services
-                    </a>
+                        <li>
+                            <a href="{% url 'book_service' %}">
+                                Book Service
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="#contact">
+                                Contact
+                            </a>
+                        </li>
 
-                    <a href="#why-us">
-                        Why Us
-                    </a>
-
-
-                    <a href="#contact">
-                        Contact
-                    </a>
+                    </ul>
 
                 </div>
 
 
-                <div class="footer-column">
+                <div>
 
-                    <h4>
-                        Services
-                    </h4>
+                    <div class="footer-title">
+                        Our Services
+                    </div>
 
+                    <ul class="footer-links">
 
-                    <a href="#services">
-                        Website Development
-                    </a>
+                        <li>
+                            <a href="#services">
+                                Website Development
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="#services">
+                                Software Solutions
+                            </a>
+                        </li>
 
-                    <a href="#services">
-                        Digital Services
-                    </a>
+                        <li>
+                            <a href="#services">
+                                Business Registration
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="#services">
+                                Branding & Design
+                            </a>
+                        </li>
 
-                    <a href="#services">
-                        Branding & Design
-                    </a>
+                        <li>
+                            <a href="#services">
+                                Digital Marketing
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="#services">
+                                Business Consultancy
+                            </a>
+                        </li>
 
-                    <a href="#services">
-                        Digital Marketing
-                    </a>
-
-
-                    <a href="/book-service/">
-                        Book a Service
-                    </a>
+                    </ul>
 
                 </div>
 
@@ -3188,19 +2516,17 @@
 
             <div class="footer-bottom">
 
-                <div>
-
-                    © 2026 MJ Technologies & Business Group Ltd.
+                <p>
+                    © {% now "Y" %}
+                    <span>
+                        MJ Technologies & Business Group Ltd
+                    </span>.
                     All Rights Reserved.
+                </p>
 
-                </div>
-
-
-                <div>
-
+                <p>
                     HOME OF EXCELLENCE
-
-                </div>
+                </p>
 
             </div>
 
@@ -3209,58 +2535,119 @@
     </footer>
 
 
-    <!-- =====================================================
-         FLOATING WHATSAPP
-    ====================================================== -->
+
+    <!-- =========================================================
+         WHATSAPP FLOATING BUTTON
+    ========================================================== -->
 
     <a
-        href="https://wa.me/255789104216?text=Hello%20MJ%20Technologies%2C%20I%20would%20like%20to%20make%20an%20inquiry."
+        href="https://wa.me/255789104216?text=Hello%20MJ%20Technologies%2C%20I%20would%20like%20to%20make%20an%20inquiry"
         target="_blank"
         rel="noopener noreferrer"
         class="whatsapp-float"
         aria-label="Chat with MJ Technologies on WhatsApp"
-        title="Chat on WhatsApp"
+        title="Chat with us on WhatsApp"
     >
-
-        <span>
-            W
-        </span>
-
+        ☎
     </a>
 
 
-    <!-- =====================================================
+
+    <!-- =========================================================
          JAVASCRIPT
-    ====================================================== -->
+    ========================================================== -->
 
     <script>
 
-        function toggleMenu() {
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const menuToggle =
+                document.getElementById("menuToggle");
 
             const navLinks =
                 document.getElementById("navLinks");
 
-            navLinks.classList.toggle("active");
 
-        }
+            if (menuToggle && navLinks) {
+
+                menuToggle.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.toggle("active");
+
+                        const isOpen =
+                            navLinks.classList.contains("active");
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            isOpen ? "true" : "false"
+                        );
+
+                        menuToggle.innerHTML =
+                            isOpen ? "✕" : "☰";
+
+                    }
+                );
 
 
-        document
-            .querySelectorAll(".nav-links a")
-            .forEach(function(link) {
+                const links =
+                    navLinks.querySelectorAll("a");
 
-                link.addEventListener("click", function() {
+                links.forEach(function (link) {
 
-                    document
-                        .getElementById("navLinks")
-                        .classList.remove("active");
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            navLinks.classList.remove("active");
+
+                            menuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            menuToggle.innerHTML = "☰";
+
+                        }
+                    );
 
                 });
 
-            });
+            }
+
+
+            /* Close menu when clicking outside */
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        navLinks &&
+                        menuToggle &&
+                        navLinks.classList.contains("active") &&
+                        !navLinks.contains(event.target) &&
+                        !menuToggle.contains(event.target)
+                    ) {
+
+                        navLinks.classList.remove("active");
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuToggle.innerHTML = "☰";
+
+                    }
+
+                }
+            );
+
+        });
 
     </script>
-
 
 </body>
 </html>
